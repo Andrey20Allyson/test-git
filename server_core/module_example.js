@@ -1,7 +1,8 @@
 /**
  * @typedef {{
  * name: string;
- * sayHi(to: People): number;
+ * sayHi(to: People): void;
+ * sayBye(to: People): void;
  * }} People
  */
 
@@ -14,7 +15,11 @@ function CreatePeople(){
         name: 'hob',
 
         sayHi(to){
-            console.log(`${this.name} says hi to ${to.name}`);
+            console.log(`${this.name} says hi to ${to.name}!`);
+        },
+
+        sayBye(to){
+            console.log(`${this.name} says bye to ${to.name}`)
         }
     }  
 }
