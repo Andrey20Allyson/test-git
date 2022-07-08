@@ -3,7 +3,8 @@
  * name: string;
  * friends: Array<People>;
  * say(message: String, to: People): void;
- * startAFriendship(with_: People): void;
+ * startAFriendshipWith(with_: People): void;
+ * sayToAllFriends(message: String): void;
  * }} People
  */
 
@@ -11,9 +12,9 @@
  * 
  * @returns { People }
  */
-function CreatePeople(){ 
+function CreatePeople(name){ 
     return {
-        name: 'hob',
+        name: name || 'hob',
         friends: [],
 
         say(message, to){
@@ -25,7 +26,7 @@ function CreatePeople(){
         },
 
         startAFriendshipWith(people){
-            if(this in people.friends){
+            if(!(this in people.friends)){
                 people.friends.push(this)
                 this.friends.push(people)
             }
@@ -33,7 +34,7 @@ function CreatePeople(){
 
         sayToAllFriends(message){
             for(let friend of this.friends){
-                console.log(`${this.name} says ${message} to ${friend}`);
+                console.log(`${this.name} says ${message} to ${friend.name}`);
             }
         }
     }  
