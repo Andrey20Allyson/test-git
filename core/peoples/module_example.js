@@ -15,7 +15,6 @@
 function CreatePeople(name){ 
     return {
         name: name || 'hob',
-        friends: [],
 
         say(message, to){
             var finalMessage = `${this.name} says ${message}`
@@ -23,13 +22,6 @@ function CreatePeople(name){
                 finalMessage += ` to ${to.name}!` 
             }
             console.log(finalMessage);
-        },
-
-        startAFriendshipWith(people){
-            if(!(this in people.friends)){
-                people.friends.push(this)
-                this.friends.push(people)
-            }
         },
 
         sayToAllFriends(message){
